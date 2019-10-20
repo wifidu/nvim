@@ -116,9 +116,7 @@ noremap <LEADER>st :Startify<CR>
 " Undo operations
 noremap l u
 
-" Insert Key
-noremap k i
-noremap K I
+
 
 " make Y to copy till the end of the line
 nnoremap Y y$
@@ -143,19 +141,6 @@ noremap <LEADER>tt :%s/    /\t/g
 noremap <silent> <LEADER>o za
 
 
-" ===
-" === Cursor Movement
-" ===
-" New cursor movement (the default arrow keys are used for resizing windows)
-"     ^
-"     u
-" < n   i >
-"     e
-"     v
-noremap <silent> u k
-noremap <silent> n h
-noremap <silent> e j
-noremap <silent> i l
 
 " U/E keys for 5 times u/e (faster navigation)
 noremap <silent> U 5k
@@ -202,11 +187,7 @@ noremap se :set splitbelow<CR>:split<CR>
 noremap sn :set nosplitright<CR>:vsplit<CR>:set splitright<CR>
 noremap si :set splitright<CR>:vsplit<CR>
 
-" Resize splits with arrow keys
-noremap <up> :res +5<CR>
-noremap <down> :res -5<CR>
-noremap <left> :vertical resize-5<CR>
-noremap <right> :vertical resize+5<CR>
+
 
 " Place the two screens up and down
 noremap sh <C-w>t<C-w>K
