@@ -1,4 +1,6 @@
-" __  ____   __  _   ___     _____ __  __ ____   ____
+set spell
+"
+"" __  ____   __  _   ___     _____ __  __ ____   ____
 "|  \/  \ \ / / | \ | \ \   / /_ _|  \/  |  _ \ / ___|
 "| |\/| |\ V /  |  \| |\ \ / / | || |\/| | |_) | |
 "| |  | | | |   | |\  | \ V /  | || |  | |  _ <| |___
@@ -114,11 +116,11 @@ noremap <LEADER>rc :e ~/.config/nvim/init.vim<CR>
 noremap <LEADER>st :Startify<CR>
 
 " Undo operations
-noremap l u
+"noremap l u
 
 " Insert Key
-noremap k i
-noremap K I
+"noremap k i
+"noremap K I
 
 " make Y to copy till the end of the line
 nnoremap Y y$
@@ -143,28 +145,15 @@ noremap <LEADER>tt :%s/    /\t/g
 noremap <silent> <LEADER>o za
 
 
-" ===
-" === Cursor Movement
-" ===
-" New cursor movement (the default arrow keys are used for resizing windows)
-"     ^
-"     u
-" < n   i >
-"     e
-"     v
-noremap <silent> u k
-noremap <silent> n h
-noremap <silent> e j
-noremap <silent> i l
 
 " U/E keys for 5 times u/e (faster navigation)
 noremap <silent> U 5k
 noremap <silent> E 5j
 
 " N key: go to the start of the line
-noremap <silent> N 0
+"noremap <silent> N 0
 " I key: go to the end of the line
-noremap <silent> I $
+"noremap <silent> I $
 
 " Faster in-line navigation
 noremap W 5w
@@ -188,10 +177,10 @@ inoremap <C-a> <ESC>A
 " ===
 " Use <space> + new arrow keys for moving the cursor around windows
 noremap <LEADER>w <C-w>w
-noremap <LEADER>u <C-w>k
-noremap <LEADER>e <C-w>j
-noremap <LEADER>n <C-w>h
-noremap <LEADER>i <C-w>l
+noremap <LEADER>k <C-w>k
+noremap <LEADER>j <C-w>j
+noremap <LEADER>h <C-w>h
+noremap <LEADER>l <C-w>l
 
 " Disabling the default s key
 noremap s <nop>
@@ -202,11 +191,6 @@ noremap se :set splitbelow<CR>:split<CR>
 noremap sn :set nosplitright<CR>:vsplit<CR>:set splitright<CR>
 noremap si :set splitright<CR>:vsplit<CR>
 
-" Resize splits with arrow keys
-noremap <up> :res +5<CR>
-noremap <down> :res -5<CR>
-noremap <left> :vertical resize-5<CR>
-noremap <right> :vertical resize+5<CR>
 
 " Place the two screens up and down
 noremap sh <C-w>t<C-w>K
@@ -273,7 +257,7 @@ autocmd BufEnter * silent! lcd %:p:h
 noremap tx :r !figlet
 
 " Compile function
-noremap r :call CompileRunGcc()<CR>
+noremap e :call CompileRunGcc()<CR>
 func! CompileRunGcc()
 	exec "w"
 	if &filetype == 'c'
@@ -320,6 +304,7 @@ call plug#begin('~/.config/nvim/plugged')
 
 " Testing my own plugin
 Plug 'theniceboy/vim-calc'
+Plug 'mattn/emmet-vim'
 
 " Pretty Dress
 Plug 'theniceboy/eleline.vim'
@@ -434,7 +419,9 @@ Plug 'voldikss/vim-floaterm'
 Plug 'liuchengxu/vim-clap'
 
 " Vim Applications
-Plug 'itchyny/calendar.vim'
+"Plug 'itchyny/calendar.vim'
+Plug 'itchyny/vim-cursorword'  
+Plug 'Yggdroot/indentLine'
 
 " Other visual enhancement
 Plug 'ryanoasis/vim-devicons'
@@ -542,7 +529,7 @@ let g:NERDTreeIndicatorMapCustom = {
 " ===
 " fix the most annoying bug that coc has
 silent! au BufEnter,BufRead,BufNewFile * silent! unmap if
-let g:coc_global_extensions = ['coc-python', 'coc-vimlsp', 'coc-emmet', 'coc-html', 'coc-json', 'coc-css', 'coc-tsserver', 'coc-yank', 'coc-lists', 'coc-gitignore', 'coc-go', 'coc-omnisharp']
+"let g:coc_global_extensions = ['coc-python', 'coc-vimlsp', 'coc-emmet', 'coc-html', 'coc-json', 'coc-css', 'coc-tsserver', 'coc-yank', 'coc-lists', 'coc-gitignore', 'coc-go', 'coc-omnisharp']
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 " use <tab> for trigger completion and navigate to the next complete item
 function! s:check_back_space() abort
@@ -935,4 +922,11 @@ exec "nohlsearch"
 if has_machine_specific_file == 0
 	exec "e ~/.config/nvim/_machine_specific.vim"
 endif
+
+let g:indentLine_char_list = ['▏', '¦', '┆', '┊']
+let g:indentLine_color_term = 239
+"let g:ale_php_langserver_executable = 1
+"let g:ale_php_langserver_use_global = 1
+"let g:ale_sign_column_always = 1
+let g:ale_php_phpcs_executable = 1
 
