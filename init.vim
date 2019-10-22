@@ -118,9 +118,6 @@ noremap <LEADER>st :Startify<CR>
 " Undo operations
 "noremap l u
 
-" Insert Key
-"noremap k i
-"noremap K I
 
 " make Y to copy till the end of the line
 nnoremap Y y$
